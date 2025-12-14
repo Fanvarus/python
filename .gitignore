@@ -1,0 +1,17 @@
+# 忽略所有.ini格式的配置文件
+*.ini
+
+# 忽略所有.bat批处理文件
+*.bat
+
+# 忽略所有.log日志文件
+*.log
+
+# 忽略Python的字节码缓存目录
+__pycache__/
+
+# 忽略JetBrains系列IDE（如PyCharm）的配置目录
+.idea/
+
+# 忽略Python虚拟环境目录
+.venv/

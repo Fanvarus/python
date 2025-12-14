@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>物联卡管理平台</title>
+    <meta name="keywords" content="物联卡,移动物联卡,电信物联卡,联通物联卡,物联卡平台,物联卡CMP平台,物联网连接管理平台,智能穿戴设备连接管理平台,物联网行业解决方案，NB-IOT物联网行业解决方案，工业物联网解决方案等">
+    <meta name="description" content="深圳市徕纳物联技术有限公司提供：移动物联卡,电信物联卡,联通物联卡,物联卡平台,物联卡CMP平台,物联网连接管理平台,智能穿戴设备连接管理平台,物联网行业解决方案，NB-IOT物联网行业解决方案，工业物联网解决方案等，为客户提供行业标准或定制化一站式物联网连接服务。">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="//static.szlaina.com/adminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="//static.szlaina.com/adminLTE/bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="//static.szlaina.com/adminLTE/bower_components/Ionicons/css/ionicons.min.css">
+    <!-- select2 -->
+    <link rel="stylesheet" href="//static.szlaina.com/adminLTE/bower_components/select2/dist/css/select2.min.css" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="//static.szlaina.com/adminLTE/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="//static.szlaina.com/adminLTE/dist/css/skins/_all-skins.min.css">
+    <!-- Morris chart -->
+    <link rel="stylesheet" href="//static.szlaina.com/adminLTE/bower_components/morris.js/morris.css">
+    <!-- Date Picker -->
+    <link rel="stylesheet" href="//static.szlaina.com/adminLTE/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="//static.szlaina.com/adminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link rel="stylesheet" href="//static.szlaina.com/adminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Google Font -->
+<!--    <link rel="stylesheet" href="//static.szlaina.com/adminLTE/dist/css/fonts.googleapis.css">-->
+    <!-- bootstrap-select -->
+    <link rel="stylesheet" href="//static.szlaina.com/adminLTE/plugins/bootstrap-select/dist/css/bootstrap-select.css" />
+    <!-- layui -->
+    <link rel="stylesheet" href="//static.szlaina.com/layui/css/layui.css" media="all">
+    <!-- common css -->
+    <link rel="stylesheet" href="//static.szlaina.com/static/style/common.css">
+</head>
+<body class="hold-transition skin-blue-light  sidebar-mini sidebar-collapse" id="tianjiv2-body">
+<div class="wrapper">
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fa fa-jpy"></i></span>
+                    <div class="info-box-content">
+                        <div class="pull-left">
+                            <span class="info-box-text h32 text-bold text-muted ft14">账户余额</span>
+                            <span class="info-box-number h32 text-danger ft28">0&nbsp;<small>元</small></span>
+                        </div>
+                        <div class="pull-right">
+                                    <a href="javascript:void(0);" layuimini-content-href="/Withdraw/listWithdraw" data-title="申请提现[深圳市骏彩星驰科技有限公司]" class="btn btn-danger btn-flat">立即提现</a>
+                                </div>                                             </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <span class="info-box-icon bg-yellow"><i class="fa ion-ios-cart-outline"></i></span>
+                    <div class="info-box-content">
+                        <div class="pull-left">
+                            <span class="info-box-text h32 text-bold text-muted ft14">当日</span>
+                            <span class="info-box-number text-yellow ft16">
+                                交易单数：1<br/>
+                                上级结算：0                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="col-lg-4 col-xs-6" style="height: 100px">
+                <div class="box box-primary box-solid" style="height: 100%;">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">本周</h3>
+                        <div class="box-tools pull-right">
+                            <button type="button" id="currentButton" class="btn btn-box-tool">查看明细<i class="fa fa-angle-double-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body" style="color: #3c8dbc;">
+                        <div>
+                            <p style="display: inline-table;width: 50%; float: left">交易单数：<span>1</span></p>
+                            <p style="display: inline-table;width: 50%;">销售利润：<span>0</span></p>
+                        </div>
+                        <div>
+                            <p style="display: inline-table;width: 50%; float: left">退款单数：<span>0</span></p>
+                            <p style="display: inline-table;width: 50%;">退款利润：<span>0</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+        <div class="box box-solid">
+            <div class="box-header with-border">
+                <!--<form role="form" class="form-inline" id="search-form">-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="control-label">ICCID</label>-->
+                        <!--<input type="text" placeholder="" class="form-control pull-right" id="iccid" name="iccid">-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="control-label">代理商</label>-->
+                        <!--<select class="selectpicker" data-live-search="true" name="company_id" id="company_id">-->
+                            <!--<option value="">全部</option>-->
+                            <!---->
+                        <!--</select>-->
+                    <!--</div>-->
+                    <!--<input type="hidden" value="" class="form-control pull-right" id="bill_number" name="bill_number">-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="control-label">代理商及下级</label>-->
+                        <!--<select class="selectpicker" data-live-search="true" name="company_child" id="company_child">-->
+                            <!--<option value="">全部</option>-->
+                            <!---->
+                        <!--</select>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="control-label">费用项</label>-->
+                        <!--<select class="selectpicker" data-live-search="true" name="cost_id" id="cost_id">-->
+                            <!--<option value="">全部</option>-->
+                            <!---->
+                        <!--</select>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="control-label">出账状态</label>-->
+                        <!--<select class="form-control" id="bill_status" name="bill_status">-->
+                            <!--<option value="">全部</option>-->
+                            <!--<option value="1">未出账</option>-->
+                            <!--<option value="2">已出账</option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+                    <!--<button type="button" id="submit" class="btn btn-primary">搜索</button>-->
+                <!--</form>-->
+                <div class="box-header">
+                    <i class="fa fa-sticky-note"></i>
+                    <b>账户余额科目汇总</b>
+                    <div class="box-tools pull-right">
+                        <!--<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>-->
+                        <b>结算时段：<span class="text-danger">2021-06-18 12:55:29 ~ 当前</span></b>
+                    </div>
+                </div>
+            </div>
+            <div class="box-body">
+                <table class="table table-bordered table-hover" style="width: 100%">
+                    <thead>
+                    <tr>
+                        <th>费用项目</th>
+                        <th>金额(元)</th>
+                        <th>成本(元)</th>
+                        <th>手续费(元)</th>
+                        <th>上级结算(元)</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tableData">
+                        <tr>
+                            <td colspan="5"><div class="text-center ">请点击搜索查询</div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="box-footer">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <div id="page"></div>
+                    </div>
+                    <div class="col-sm-5" id="dataTablesInfo"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- /.content -->
+<!--
+<footer class="main-footer">
+        <strong>Copyright &copy; 2014-2025&nbsp;All rights reserved.</strong><a href="https://sys.szlaina.com/">物联卡管理平台</a>
+    <a href="http://beian.miit.gov.cn" target="_self">粤ICP备18078380号-1</a>
+</footer>
+-->
+<div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+<input type="hidden" name="user_id" id="user_id" value="7493"/>
+<!-- jQuery 3 -->
+<script type="text/javascript" src="//static.szlaina.com/adminLTE/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script type="text/javascript" src="//static.szlaina.com/adminLTE/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<!-- Bootstrap 3.3.7 -->
+<script type="text/javascript" src="//static.szlaina.com/adminLTE/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Morris.js charts -->
+<script type="text/javascript" src="//static.szlaina.com/adminLTE/bower_components/raphael/raphael.min.js"></script>
+<script type="text/javascript" src="//static.szlaina.com/adminLTE/bower_components/morris.js/morris.min.js"></script>
+<!-- Sparkline -->
+<script type="text/javascript" src="//static.szlaina.com/adminLTE/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+<!-- jQuery Knob Chart -->
+<script type="text/javascript" src="//static.szlaina.com/adminLTE/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script type="text/javascript" src="//static.szlaina.com/adminLTE/bower_components/moment/min/moment.min.js"></script>
+<script type="text/javascript" src="//static.szlaina.com/adminLTE/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- datepicker -->
+<script type="text/javascript" src="//static.szlaina.com/adminLTE/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="//static.szlaina.com/adminLTE/bower_components/bootstrap-datepicker/dist/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script type="text/javascript" src="//static.szlaina.com/adminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<!-- Slimscroll -->
+<script type="text/javascript" src="//static.szlaina.com/adminLTE/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script type="text/javascript" src="//static.szlaina.com/adminLTE/bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script type="text/javascript" src="//static.szlaina.com/adminLTE/dist/js/adminlte.min.js"></script>
+<!-- Baidu template -->
+<script type="text/javascript" src="//static.szlaina.com/static/js/baidu-template.js"></script>
+<!-- select -->
+<script type="text/javascript" src="//static.szlaina.com/adminLTE/plugins/bootstrap-select/dist/js/bootstrap-select.js"></script>
+<script type="text/javascript" src="//static.szlaina.com/adminLTE/plugins/bootstrap-select/dist/js/i18n/defaults-zh_CN.js"></script>
+<!-- Select2 -->
+<script type="text/javascript" src="//static.szlaina.com/adminLTE/bower_components/select2/dist/js/select2.full.min.js"></script>
+<!-- jquery.serializejson -->
+<script type="text/javascript" src="//static.szlaina.com/static/js/jquery.serializejson.js"></script>
+<!-- datetimepicker -->
+<link rel="stylesheet" href="//static.szlaina.com/adminLTE/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css">
+<script type="text/javascript" src="//static.szlaina.com/adminLTE/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="//static.szlaina.com/adminLTE/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+<!-- base&common -->
+<script type="text/javascript" src="//static.szlaina.com/adminLTE/dist/js/base.js"></script>
+<script type="text/javascript" src="//static.szlaina.com/static/js/common.js"></script>
+<!-- layui -->
+<script type="text/javascript" src="//static.szlaina.com/layui/layui.js" charset="utf-8"></script>
+<!-- layui扩展模块 -->
+<script src="//static.szlaina.com/TianjiV2/js/lay-config.js?v=2.0.0" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+    $.widget.bridge('uibutton', $.ui.button);
+    $(function () {
+        <!-- select2初始化样式 -->
+        $(".select2").select2({
+            width: "15rem",
+            placeholder: "请选择"
+        });
+    });
+    // 模块化调用
+    layui.use(['jquery', 'layer', 'miniAdmin','miniTab'], function () {
+        let $ = layui.jquery,
+            // layer 模块化使用
+            // layer = layui.layer,
+            // miniAdmin = layui.miniAdmin,
+            miniTab = layui.miniTab;
+
+        // 标签监听事件
+        miniTab.listen();
+    });
+</script>
+</body>
+</html>
+<!--
+<div class="modal fade" tabindex="-1" role="dialog" id="noticeModal">
+    <div class="modal-dialog" role="document">
+        <form role="form" class="form-horizontal" id="transForm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-red"><i class="fa fa-exclamation-triangle"></i>重要提醒</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="notice_msg"></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="audit_company_id" id="audit_company_id" value=""/>
+                    <div class="pull-right">
+                        <button type="button" id="modalButton" onclick="window.location.href='/Company/updateCompany'" class="btn btn-primary btn-flat">前往完善</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+-->
+<script type="text/javascript">
+    $(function () {
+        // 点击图片放大展示
+        $(".show-big-img").click(function () {
+            // 页面层
+            layer.open({
+                title: false,
+                type: 1,
+                area: ['80%', '80%'],
+                shadeClose: true,
+                content: '<div class="show-big-img-wrap" style="text-align:center"><img src="' + $(this).attr('src') + '" /></div>'
+            });
+        });
+    });
+</script>
+
+<script>
+    /**
+     * 通用导出初始化函数
+     * - 依赖：layui（layer 模块）与 jQuery（可通过 layui.$ 或全局 $）
+     * - 调用方式：initDataExport({ button, email, url })
+     */
+    (function (global) {
+      'use strict';
+    
+      /**
+       * 初始化导出按钮点击逻辑
+       * @param {Object} opts                   配置项
+       * @param {string} opts.button            触发按钮的选择器或ID
+       *                                         例子： '#data-export-btn'
+       * @param {string} opts.email             当前个人邮箱，仅用于弹窗标题展示
+       * @param {string} opts.email_subject     邮件主题
+       * @param {string} opts.email_body        邮件正文
+       * @param {string} opts.url               导出接口地址，如 '/Card2/cardUsageListExport'
+       */
+      function initDataExport(opts) {
+          // ======================== 参数与依赖检查（关键） ========================
+          opts = opts || {};
+          var btnSel = opts.button || '';               // 默认目标按钮ID
+          var email = opts.email || '';                 // 标题展示邮箱（可为空）
+          var email_subject = opts.email_subject || ''; // 邮件主题（可为空）
+          var email_body = opts.email_body || '';       // 邮件正文（可为空）
+          var reqUrl = opts.url;                        // 导出接口地址（必填）
+
+          // 兼容 layui.$ 与全局 jQuery/$（关键）
+          var $ = (global.layui && global.layui.$) ? global.layui.$ : (global.jQuery || global.$);
+          if (!$) {
+              console.error('initDataExport: 未检测到 jQuery，请确保已加载 layui 或 jQuery');
+              return;
+          }
+
+          // 兼容 layer 引用（关键）
+          var layerRef = global.layer || (global.layui ? global.layui.layer : null);
+          if (!layerRef) {
+              console.error('initDataExport: 未检测到 layui.layer，请确保已正确引入 layui 的 layer 模块');
+              return;
+          }
+
+          if (!reqUrl) {
+              console.error('initDataExport: 缺少必填参数 url');
+              return;
+          }
+
+          // ======================== 绑定点击事件（避免重复绑定，关键） ========================
+          // 先卸载同命名空间旧绑定，确保重复初始化不叠加事件
+          $(document).off('click.initDataExport', btnSel);
+          // 使用事件委托，减少直接绑定带来的冲突
+          $(document).on('click.initDataExport', btnSel, function () {
+              // ======================== 获取表单并序列化（关键） ========================
+              var $btn = $(this);
+              var $form = $btn.closest('form');          // 就近查找最近的 form
+              var data = $form.length ? $form.serialize() : '';
+              // 将 %2C 还原为逗号
+              data = data.replace(/\%2C+/g, ',');
+              data += "&is_export=1";
+              //表单序列化后返回一个字符串 如：account=123&password=1234&sex=&dept=2
+              var array = data.split('&');
+              //把字符串按&号分隔成数组 得到 {account=123,password=1234,sex=,dept=2} 字符串数组
+              var real_data = '';
+              //把字符串数组按/组合 得到 account/123/password/1234/sex/dept/2 字符
+              for(var i = 0;i < array.length; i++){
+                  var kwarr = array[i].split('=');
+                  //循环将数组中的每个子元素字符串用=号分隔成数组 {account,123} {sex,} 然后判断索引为1的子元素是否存在或为‘' 从而达到了表单判空的目的
+                  if(kwarr[1]!==null && kwarr[1] !==''){
+                      if(real_data == ''){
+                          real_data = kwarr[0]+'/'+kwarr[1];
+                      }else{
+                          real_data += '/'+kwarr[0]+'/'+kwarr[1];
+                      }
+                  }
+              }
+
+              // ======================== 新的现代化导出弹窗 ========================
+              // ======================== 现代化导出弹窗（优化文案与交互） ========================
+              var titleText = '系统将把导出文件发送至默认邮箱：【' + email + '】。如需发送到其他邮箱，请在下方输入新邮箱；留空则发送至默认邮箱。';
+
+              var contentHtml = [
+                  '<div class="layui-form" style="padding: 12px 16px;">',
+                  '  <!-- 说明文案：浅色、简洁，与系统风格一致 -->',
+                  '  <div class="layui-form-item" style="margin-bottom: 10px;">',
+                  '    <div class="layui-text" style="line-height:1.7;color:#666;">' + titleText + '</div>',
+                  '  </div>',
+                  '  <!-- 是否覆盖默认邮箱（可选） -->',
+                  '  <div class="layui-form-item" style="margin-bottom: 10px;">',
+                  '    <label class="layui-form-label" style="width:auto;padding-right:8px;">是否覆盖默认邮箱</label>',
+                  '    <div class="layui-input-block" style="margin-left:140px;">',
+                  '      <input type="radio" name="overrideEmail" value="0" title="否" checked>',
+                  '      <input type="radio" name="overrideEmail" value="1" title="是">',
+                  '    </div>',
+                  '  </div>',
+                  '  <!-- 新邮箱输入框：默认启用 -->',
+                  '  <div class="layui-form-item" style="margin-bottom: 0;">',
+                  '    <label class="layui-form-label" style="width:auto;padding-right:8px;">新邮箱（可选）</label>',
+                  '    <div class="layui-input-block" style="margin-left:140px;">',
+                  '      <input type="text" id="emailPrompt" class="layui-input" placeholder="不填则发送至默认邮箱">',
+                  '      <div class="layui-form-mid layui-word-aux" style="margin-left:0;padding-left:0;">',
+                  '        如在此填写邮箱，将发送到该邮箱；留空则发送至默认邮箱',
+                  '      </div>',
+                  '    </div>',
+                  '  </div>',
+                  '</div>'
+              ].join('');
+
+              var dlgIndex = layerRef.open({
+                  type: 1,                 // 页面层
+                  title: '导出',            // 标题固定为“导出”
+                  content: contentHtml,    // 自定义轻量化内容
+                  area: '480px',           // 适中宽度，便于信息展示
+                  shade: 0.2,              // 浅遮罩，整体更轻
+                  closeBtn: 1,             // 右上角关闭按钮
+                  btn: ['开始导出', '取消'], // 操作按钮
+                  btnAlign: 'c',           // 按钮居中，简洁对称
+                  resize: false,           // 不允许调整尺寸，避免界面跑位
+                  // 弹窗渲染完成后，初始化表单
+                  success: function () {
+                      // 若已加载 layui.form，则渲染单选样式，使之与系统风格一致
+                      if (window.layui && layui.form && layui.form.render) {
+                          layui.form.render(); // 渲染所有表单控件
+                      }
+                  },
+                  // 点击“开始导出”
+                  yes: function (index, layero) {
+                      // 读取覆盖选项与邮箱值
+                      var override = $(layero).find('input[name="overrideEmail"]:checked').val();
+                      var emailValue = override ? $(layero).find('#emailPrompt').val() : '';
+
+                      // ======================== 保存任务，等待执行 ========================
+                      var loadIndex;
+                      $.ajax({
+                          type: 'POST',
+                          url: "/ExportTask/exportByEmailNew",
+                          data: {
+                              'task_path': reqUrl + "/" + real_data,
+                              'email': emailValue,
+                              'email_subject': email_subject,
+                              'email_body': email_body,
+                              'override': override,
+                          },
+                          beforeSend: function () {
+                              loadIndex = layerRef.load(1, {shade: [0.4, '#000']});
+                          },
+                          complete: function () {
+                              layerRef.close(loadIndex);
+                              layerRef.close(index); // 关闭弹窗
+                          },
+                          success: function (res) {
+                              if (res.status == 99) {
+                                  layerRef.msg(res.message);
+                                  setInterval(function () {
+                                      top.location.href = '/Login/index';
+                                  }, 1000);
+                                  return;
+                              }
+                              if (res.status == 1) {
+                                  layerRef.alert(res.message, {icon: 6});
+                              } else {
+                                  layerRef.alert(res.message, {icon: 5});
+                              }
+                          },
+                          error: function () {
+                              layerRef.msg("网络开小差了，请稍后重试。", function () {
+                              });
+                          }
+                      });
+                  }
+              });
+          });
+      }
+    
+      // 暴露到全局，供各页面初始化调用（关键）
+      global.initDataExport = initDataExport;
+    
+    })(window);
+    </script>
+<script type="text/javascript" src="//static.szlaina.com/static/js/jquery.paginate.js"></script>
+<script type="text/javascript" src="//static.szlaina.com/static/js/baidu-template.js"></script>
+
+<script id="dataList" type="text/html">
+    <%if(list.length >= 1) { %>
+    <%for(var i=0; i < list.length; i++){%>
+    <tr>
+        <td><%=list[i].cost_name%></td>
+        <td><%=list[i].income_money%></td>
+        <td><%=list[i].cost_money%></td>
+        <td><%=list[i].fee%></td>
+        <td><%=list[i].profit%></td>
+    </tr>
+    <%}%>
+    <%}else{%>
+    <tr>
+        <td colspan="5" style="text-align: center;">暂无数据</td>
+    </tr>
+    <%}%>
+</script>
+<!-- 模板1结束 -->
+<script type="text/javascript" src="//static.szlaina.com/static/js/jquery.form.js"></script>
+<script type="text/javascript">
+    var listpage = {
+        //页面初始化
+        initPage: function () {
+            var that = this;
+            that.getList();
+        },
+
+        //分页
+        iniPagination: function (t, id, func, size, cpage) {
+            if (!!!func) {
+                func = function () {
+                };
+            }
+            if (!!!size) {
+                size = pageSize;
+            }
+            if (!!!cpage) {
+                cpage = 0;
+            }
+            $(id).pagination(t, {
+                callback: func,
+                prev_text: '<',
+                next_text: '>',
+                items_per_page: size,
+                num_display_entries: 3,
+                current_page: cpage,
+                num_edge_entries: 3,
+                link_to: "javascript:void(0);"
+            });
+        },
+
+        //获取列表数据
+        getList: function (page) {
+            var that = listpage;
+            if (!!!page) page = 0;
+            page += 1;
+            $("#tableData").html('<tr><td colspan="5"><div class="text-center "><i class="fa fa-spinner fa-spin mr5 fz20"></i>数据加载中</div></td></tr>');
+            // 获取搜索数据
+            $.ajax({
+                url: '/Profit/currentBillDetail',
+                type: 'POST',
+                data: {
+                    "page": page,
+                    "num": pageSize,
+                    'company_id' : 4609                },
+                success: function (data) {
+                    if (data.status == 99) {
+                        layer.msg(data.message);
+                        setInterval(function () {
+                            top.location.href = "/Login/index";
+                        }, 1000);
+                        return false;
+                    }
+                    if(data.status == 0){
+                        layer.alert(data.message, {icon: 5});
+                        return false;
+                    }
+                    if(data.total == 0){
+                        $("#page").hide();
+                        $("#dataTablesInfo").html('');
+                    }else {
+                        $("#page").show();
+                        $("#dataTablesInfo").html('<div class="dataTablesInfo pull-right">总共 ' + data.total + ' 条记录</div>');
+                    }
+                    //渲染
+                    $("#tableData").html(baidu.template("dataList", data));
+                    that.iniPagination(data.total, "#page", that.getList, pageSize, page - 1);
+                },
+                error: function () {
+                    layer.msg("网络开小差了，请稍后重试。", function () {});
+                }
+            });
+        }
+    };
+
+    /**
+     * 初始化页面
+     **/
+    $(function () {
+        listpage.initPage();
+
+        // 搜索
+        $("#submit").click(function () {
+            listpage.getList();
+        });
+    });
+
+</script>
